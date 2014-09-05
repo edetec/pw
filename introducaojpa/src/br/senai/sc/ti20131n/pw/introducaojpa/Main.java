@@ -34,6 +34,8 @@ public class Main {
 		}
 		
 		entityManager.close();
+		
+		
 		entityManagerFactory.close();
 
 	}
