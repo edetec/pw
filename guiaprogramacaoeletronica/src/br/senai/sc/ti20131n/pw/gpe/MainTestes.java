@@ -18,10 +18,10 @@ public class MainTestes {
 		JpaUtil.iniciarPersistenceUnit();
 
 		entityManager = JpaUtil.getEntityManager();
-//		inserir();
-//		editar();
-//		excluir();
-		listar();
+		inserir();
+		editar();
+		excluir();
+//		listar();
 //		inserirPrograma();
 		
 		entityManager.close();		
