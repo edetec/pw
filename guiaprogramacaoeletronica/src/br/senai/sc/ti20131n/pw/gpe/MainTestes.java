@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import javax.swing.JOptionPane;
 
 import br.senai.sc.ti20131n.pw.gpe.entity.Canal;
 import br.senai.sc.ti20131n.pw.gpe.entity.Programa;
@@ -23,7 +24,7 @@ public class MainTestes {
 //		excluir();
 		listar();
 //		inserirPrograma();
-		
+		JOptionPane.showConfirmDialog(null, "OK");
 		entityManager.close();		
 		JpaUtil.fecharPersistenceUnit();
 	}
