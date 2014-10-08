@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<head>
+<title><ui:insert name="title">Introdução JSF 2.2</ui:insert></title>
+</head>
+
+<body>
+	<ui:include src="/WEB-INF/templates/menu.xhtml"></ui:include>
+	<div>
+		<ui:insert name="page-title">
+			<h1>Introdução JSF 2.2</h1>
+		</ui:insert>
+		<ui:insert name="content">...</ui:insert>
+	</div>
+
+
+	<!-- Placed at the end of the document so the pages load faster -->
+	<h:outputScript library="js" name="jquery.min.js"></h:outputScript>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"></link>
+
+	<!-- Optional theme -->
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"></link>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<h:outputScript library="js" name="bootstrap.min.js"></h:outputScript>
+</body>
+
+</html>
