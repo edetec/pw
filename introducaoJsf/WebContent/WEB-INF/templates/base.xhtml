@@ -4,11 +4,16 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html">
-<head>
-<title><ui:insert name="title">Introdução JSF 2.2</ui:insert></title>
-</head>
+<h:head>
+	<title><ui:insert name="title">Introdução JSF 2.2</ui:insert></title>
+	<link rel="icon" href="#{resource['img/favicon.png']}"></link>
 
-<body>
+	<!-- Latest compiled and minified CSS -->
+	<h:outputStylesheet library="css" name="bootstrap.min.css"></h:outputStylesheet>
+	<!-- Optional theme -->
+	<h:outputStylesheet library="css" name="bootstrap-theme.min.css"></h:outputStylesheet>
+</h:head>
+<h:body>
 	<ui:include src="/WEB-INF/templates/menu.xhtml"></ui:include>
 	<div>
 		<ui:insert name="page-title">
@@ -16,21 +21,10 @@
 		</ui:insert>
 		<ui:insert name="content">...</ui:insert>
 	</div>
-
-
 	<!-- Placed at the end of the document so the pages load faster -->
 	<h:outputScript library="js" name="jquery.min.js"></h:outputScript>
 
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet"
-		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"></link>
-
-	<!-- Optional theme -->
-	<link rel="stylesheet"
-		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"></link>
-
 	<!-- Latest compiled and minified JavaScript -->
 	<h:outputScript library="js" name="bootstrap.min.js"></h:outputScript>
-</body>
-
+</h:body>
 </html>
