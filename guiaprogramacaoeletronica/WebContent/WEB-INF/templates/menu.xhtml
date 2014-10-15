@@ -16,17 +16,17 @@
 			</div>
 			<div class="collapse navbar-collapse">
 				<ul id="menu_principal" class="nav navbar-nav">
-					<li><a href="index.xhtml">Home</a></li>
-					<li><a href="canais.xhtml">Lista de canais</a></li>
-					<li><a href="contatos.xhtml">Contatos</a></li>
+					<li><h:link outcome="/index" value="Home" /></li>
+					<li><h:link outcome="/canais" value="Lista de canais" /></li>
+					<li><h:link outcome="/contatos" value="Contato" /></li>
 				</ul>
 
 				<ul id="menu_admin" class="nav navbar-nav navbar-right">
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>Admin <span class="caret"></span></a>
+					<li class="dropdown"> <a href="#" class="dropdown-toggle"
+						data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Admin <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
-							<li><a href="admin/canalform.xhtml">Cadastrar</a></li>
-							<li><a href="admin/canallista.xhtml">Listar</a></li>
+							<li><h:link outcome="/admin/canalform" value="Cadastrar" /></li>
+							<li><h:link outcome="/admin/canallista" value="Listar" /></li>
 						</ul></li>
 				</ul>
 			</div>
