@@ -55,7 +55,7 @@ public class ContatoMb {
 		this.mensagem = mensagem;
 	}
 	
-	public void enviar(){
+	public String enviar(){
 		EntityManager entityManager = JpaUtil.getEntityManager();
 		
 		System.out.println("Nome: " + nome);
@@ -64,5 +64,6 @@ public class ContatoMb {
 		System.out.println("Área: " + area);
 		System.out.println("Mensagem: " + mensagem);
 		System.out.println("News: " + news);
+		return "";
 	}
 }

@@ -11,16 +11,16 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 
-@WebFilter(servletNames={"Faces Servlet"})
+@WebFilter(servletNames = { "Faces Servlet" })
 public class JpaFilter implements Filter {
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain filterChain) throws IOException, ServletException {
 		EntityManager entityManager = JpaUtil.createEntityManager();
-		
+
 		JpaUtil.setEntityManager(request, entityManager);
-		
+
 		try {
 			entityManager.getTransaction().begin();
 
@@ -28,7 +28,9 @@ public class JpaFilter implements Filter {
 
 			entityManager.getTransaction().commit();
 		} catch (Exception exception) {
-			entityManager.getTransaction().rollback();
+			if (entityManager.getTransaction().isActive())
+				entityManager.getTransaction().rollback();
+
 		} finally {
 			entityManager.close();
 		}
