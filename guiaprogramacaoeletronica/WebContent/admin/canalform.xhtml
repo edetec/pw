@@ -14,21 +14,29 @@
 		<div class="panel panel-default col-md-9">
 			<div class="panel-body">
 				<h:form role="form">
+					<h:inputHidden value="#{canalMb.canal.id}" />
+					<h:panelGroup rendered="#{not empty canalMb.canal.id}">
+						<div class="form-group">
+							<h:outputLabel value="Código" /> 
+							<h:inputText readonly="true" value="#{canalMb.canal.id}" styleClass="form-control" />
+						</div>
+					</h:panelGroup>
+					
 					<div class="form-group">
 						<h:outputLabel value="Nome" /> 
-						<h:inputText value="#{canalMb.nome}" styleClass="form-control" />
+						<h:inputText value="#{canalMb.canal.nome}" styleClass="form-control" />
 					</div>
 					<div class="form-group">
 						<h:outputLabel value="Gênero" /> 
-						<h:inputText value="#{canalMb.genero}" styleClass="form-control" />
+						<h:inputText value="#{canalMb.canal.genero}" styleClass="form-control" />
 					</div>
 					<div class="form-group">
 						<h:outputLabel value="Número" /> 
-						<h:inputText value="#{canalMb.numero}" styleClass="form-control" />
+						<h:inputText value="#{canalMb.canal.numero}" styleClass="form-control" />
 					</div>
 					<div class="form-group">
 						<h:outputLabel value="Classificação" />
-						<h:selectOneMenu value="#{canalMb.classificacao}" styleClass="form-control" style="width:45%;">
+						<h:selectOneMenu value="#{canalMb.canal.classificacao}" styleClass="form-control" style="width:45%;">
 							<f:selectItem itemValue="" itemLabel=" -- " />
 							<f:selectItem itemValue="1" itemLabel="Livre" />
 							<f:selectItem itemValue="2" itemLabel="10" />
