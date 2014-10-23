@@ -1,14 +1,15 @@
 package br.senai.sc.ti20131n.pw.gpe.mb;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.persistence.Query;
+import javax.servlet.http.Part;
 
 import br.senai.sc.ti20131n.pw.gpe.dao.CanalDao;
 import br.senai.sc.ti20131n.pw.gpe.entity.Canal;
-import br.senai.sc.ti20131n.pw.gpe.util.JpaUtil;
+import br.senai.sc.ti20131n.pw.gpe.util.UploadImageUtil;
 
 @ManagedBean
 public class CanalMb {
@@ -16,6 +17,7 @@ public class CanalMb {
 	
 	private List<Canal> canais;
 	private Canal canal;
+	private Part logo;
 
 
 	public List<Canal> getCanais() {
@@ -37,15 +39,30 @@ public class CanalMb {
 		this.canal = canal;
 	}
 	
- //***************  ações *****************************
-	
+	public Part getLogo() {
+		return logo;
+	}
+
+	public void setLogo(Part logo) {
+		this.logo = logo;
+	}
+
 	@PostConstruct
 	public void init(){
 		canalDao = new CanalDao();
 		canal = new Canal();
 	}
 	
-	public String salvar(){
+ //***************  ações *****************************
+	
+	public String caminho(String nomeImagem){
+		return UploadImageUtil.getCaminho(nomeImagem);
+	}
+	
+	public String salvar() throws IOException{
+		String nomeImagem = UploadImageUtil.copiar(logo, canal.getLogo());
+		canal.setLogo(nomeImagem);
+		
 		canalDao.salvar(getCanal());
 		return "canallista";
 	}
@@ -56,7 +73,8 @@ public class CanalMb {
 	}
 	
 	public String excluir(String id){
-		canalDao.excluir(Long.parseLong(id));
+		Canal canalRemovido = canalDao.excluir(Long.parseLong(id));
+		UploadImageUtil.deletar(canalRemovido.getLogo());
 		canais = null;
 		return "canallista";
 	}

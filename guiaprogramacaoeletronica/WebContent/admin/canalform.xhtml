@@ -13,7 +13,7 @@
 	<ui:define name="content">
 		<div class="panel panel-default col-md-9">
 			<div class="panel-body">
-				<h:form role="form">
+				<h:form role="form" enctype="multipart/form-data">
 					<h:inputHidden value="#{canalMb.canal.id}" />
 					<h:panelGroup rendered="#{not empty canalMb.canal.id}">
 						<div class="form-group">
@@ -33,6 +33,11 @@
 					<div class="form-group">
 						<h:outputLabel value="Número" /> 
 						<h:inputText value="#{canalMb.canal.numero}" styleClass="form-control" />
+					</div>
+					<div class="form-group">
+						<h:outputLabel value="Logo" /> 
+						<h:inputFile value="#{canalMb.logo}" styleClass="form-control" />
+						<h:inputHidden value="#{canalMb.canal.logo}" />
 					</div>
 					<div class="form-group">
 						<h:outputLabel value="Classificação" />

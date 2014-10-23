@@ -22,6 +22,7 @@ public class Canal {
 	private Integer classificacao;
 	@OneToMany(fetch=FetchType.LAZY,mappedBy="canal")
 	private List<Programa> programas;
+	private String logo;
 
 	public Long getId() {
 		return id;
@@ -69,5 +70,13 @@ public class Canal {
 
 	public void setProgramas(List<Programa> programas) {
 		this.programas = programas;
+	}
+
+	public String getLogo() {
+		return logo;
+	}
+
+	public void setLogo(String logo) {
+		this.logo = logo;
 	}
 }

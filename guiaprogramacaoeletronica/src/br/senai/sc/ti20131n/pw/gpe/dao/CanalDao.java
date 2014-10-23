@@ -31,9 +31,10 @@ public class CanalDao {
 		return entityManager.find(Canal.class, id);
 	}
 
-	public void excluir(Long id) {
-		Canal canal = entityManager.getReference(Canal.class, id);
+	public Canal excluir(Long id) {
+		Canal canal = entityManager.find(Canal.class, id);
 		entityManager.remove(canal);
+		return canal;
 	}
 
 }
