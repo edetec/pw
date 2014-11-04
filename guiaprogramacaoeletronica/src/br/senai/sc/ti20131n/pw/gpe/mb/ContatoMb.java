@@ -4,7 +4,6 @@ import javax.faces.bean.ManagedBean;
 import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 
-import br.senai.sc.ti20131n.pw.gpe.model.Email;
 import br.senai.sc.ti20131n.pw.gpe.util.EmailUtil;
 
 @ManagedBean
@@ -61,13 +60,8 @@ public class ContatoMb {
 				"\nMensagem: " + mensagem +
 				"\nNews: " + news;
 		
-		Email mensagemEmail = new Email();
-		mensagemEmail.setAssunto("Contato via site.");
-		mensagemEmail.setDestinatario(email);
-		mensagemEmail.setMensagem(mensagemText);
-		
 		try {
-			EmailUtil.enviarEmail(mensagemEmail);
+			EmailUtil.enviarEmail(email, "Contato via site.", mensagemText);
 		} catch (AddressException e) {
 			e.printStackTrace();
 		} catch (MessagingException e) {

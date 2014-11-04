@@ -15,14 +15,12 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-import br.senai.sc.ti20131n.pw.gpe.model.Email;
-
 public class EmailUtil {
 	
-	public static void enviarEmail(Email email) throws AddressException, MessagingException {
+	public static void enviarEmail(String destinatario, String assunto, String conteudo) throws AddressException, MessagingException {
 		Authenticator authenticator = getAuthenticator();
 		InternetAddress remetente = new InternetAddress(getFrom()); 
-		InternetAddress destinatario = new InternetAddress(email.getDestinatario());
+		InternetAddress destinatarioEmail = new InternetAddress(destinatario);
 		Properties properties = getProperties();
 		
 		Session session = Session.getDefaultInstance(properties, authenticator);
@@ -32,9 +30,9 @@ public class EmailUtil {
 		msg.setFrom(remetente);
 		msg.setSentDate(new Date());
 		
-		msg.setRecipient(Message.RecipientType.TO, destinatario);
-		msg.setSubject(email.getAssunto());
-		msg.setText(email.getMensagem());
+		msg.setRecipient(Message.RecipientType.TO, destinatarioEmail);
+		msg.setSubject(assunto);
+		msg.setText(conteudo);
 		
 //		session.setDebug(true);
 		Transport.send(msg);
