@@ -1,13 +1,11 @@
 package br.senai.sc.ti20131n.pw.gpe.mb;
 
-import java.util.Map;
-
 import javax.faces.bean.ManagedBean;
-import javax.faces.context.FacesContext;
-import javax.persistence.EntityManager;
-import javax.servlet.http.HttpServletRequest;
+import javax.mail.MessagingException;
+import javax.mail.internet.AddressException;
 
-import br.senai.sc.ti20131n.pw.gpe.util.JpaUtil;
+import br.senai.sc.ti20131n.pw.gpe.model.Email;
+import br.senai.sc.ti20131n.pw.gpe.util.EmailUtil;
 
 @ManagedBean
 public class ContatoMb {
@@ -56,14 +54,26 @@ public class ContatoMb {
 	}
 	
 	public String enviar(){
-		EntityManager entityManager = JpaUtil.getEntityManager();
+		String mensagemText = "Nome: " + nome +
+				"\nEmail: " + email +
+				"\nSenha: " + senha +
+				"\n¡rea: " + area +
+				"\nMensagem: " + mensagem +
+				"\nNews: " + news;
 		
-		System.out.println("Nome: " + nome);
-		System.out.println("Email: " + email);
-		System.out.println("Senha: " + senha);
-		System.out.println("¡rea: " + area);
-		System.out.println("Mensagem: " + mensagem);
-		System.out.println("News: " + news);
+		Email mensagemEmail = new Email();
+		mensagemEmail.setAssunto("Contato via site.");
+		mensagemEmail.setDestinatario(email);
+		mensagemEmail.setMensagem(mensagemText);
+		
+		try {
+			EmailUtil.enviarEmail(mensagemEmail);
+		} catch (AddressException e) {
+			e.printStackTrace();
+		} catch (MessagingException e) {
+			e.printStackTrace();
+		}
+		
 		return "";
 	}
 }
