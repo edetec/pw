@@ -43,9 +43,8 @@
 						<h:outputLabel value="Classificação" />
 						<h:selectOneMenu value="#{canalMb.canal.classificacao}" styleClass="form-control" style="width:45%;">
 							<f:selectItem itemValue="" itemLabel=" -- " />
-							<f:selectItem itemValue="1" itemLabel="Livre" />
-							<f:selectItem itemValue="2" itemLabel="10" />
-							<f:selectItem itemValue="3" itemLabel="12" />
+							<f:selectItems value="#{canalMb.classificacoes}" var="cla" 
+								itemLabel="#{cla.descricao}" itemValue="#{cla.id}"  />
 						</h:selectOneMenu>
 					</div>
 					<h:commandButton action="#{canalMb.salvar}" styleClass="btn btn-default" value="Enviar" />

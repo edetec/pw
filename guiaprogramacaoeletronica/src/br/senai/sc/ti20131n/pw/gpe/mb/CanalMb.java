@@ -1,6 +1,7 @@
 package br.senai.sc.ti20131n.pw.gpe.mb;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -9,6 +10,7 @@ import javax.servlet.http.Part;
 
 import br.senai.sc.ti20131n.pw.gpe.dao.CanalDao;
 import br.senai.sc.ti20131n.pw.gpe.entity.Canal;
+import br.senai.sc.ti20131n.pw.gpe.model.Classificacao;
 import br.senai.sc.ti20131n.pw.gpe.util.UploadImageUtil;
 
 @ManagedBean
@@ -18,7 +20,17 @@ public class CanalMb {
 	private List<Canal> canais;
 	private Canal canal;
 	private Part logo;
-
+	private static List<Classificacao> classificacoes;
+	
+	static {
+		classificacoes = new ArrayList<Classificacao>();
+		classificacoes.add(new Classificacao(1L,"Livre"));
+		classificacoes.add(new Classificacao(2L,"10 anos"));
+		classificacoes.add(new Classificacao(3L,"12 anos"));
+		classificacoes.add(new Classificacao(4L,"14 anos"));
+		classificacoes.add(new Classificacao(5L,"16 anos"));
+		classificacoes.add(new Classificacao(6L,"18 anos"));
+	}
 
 	public List<Canal> getCanais() {
 		if(canais == null){
@@ -45,6 +57,14 @@ public class CanalMb {
 
 	public void setLogo(Part logo) {
 		this.logo = logo;
+	}
+
+	public List<Classificacao> getClassificacoes() {
+		return classificacoes;
+	}
+
+	public void setClassificacoes(List<Classificacao> classificacoes) {
+		this.classificacoes = classificacoes;
 	}
 
 	@PostConstruct
