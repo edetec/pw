@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="../WEB-INF/templates/base.xhtml">
+	<ui:define name="page-title">
+		<h1>Programa - <small>cadastro</small></h1>
+	</ui:define>
+	<ui:define name="content">
+		<div class="panel panel-default col-md-9">
+			<div class="panel-body">
+				<h:form role="form" enctype="multipart/form-data">
+					<h:inputHidden value="#{programaMB.programa.id}" />
+					<h:panelGroup rendered="#{not empty programaMB.programa.id}">
+						<div class="form-group">
+							<h:outputLabel value="Código" /> 
+							<h:inputText readonly="true" value="#{programaMB.programa.id}" styleClass="form-control" />
+						</div>
+					</h:panelGroup>
+					
+					<div class="form-group">
+						<h:outputLabel value="Nome" /> 
+						<h:inputText value="#{programaMB.programa.nome}" styleClass="form-control" />
+					</div>
+					<div class="form-group">
+						<h:outputLabel value="Descrição" /> 
+						<h:inputText value="#{programaMB.programa.descricao}" styleClass="form-control" />
+					</div>
+					<div class="form-group">
+						<h:outputLabel value="Início" /> 
+						<input type="datetime-local" value="#{programaMB.programa.inicio}" class="form-control" />
+					</div>
+					<div class="form-group">
+						<h:outputLabel value="Fim" /> 
+						<input type="datetime-local" value="#{programaMB.programa.fim}" class="form-control" />
+					</div>
+					
+					<div class="form-group">
+						<h:outputLabel value="Canal" />
+						<h:selectOneMenu value="#{programaMB.programa.canal}" styleClass="form-control" style="width:45%;">
+							<f:selectItem itemValue="" itemLabel=" -- " />
+							<f:selectItems value="#{canalMb.canais}" var="canal" 
+								itemLabel="#{canal.nome}" itemValue="#{canal}"  />
+						</h:selectOneMenu>
+					</div>
+					
+					<div class="form-group">
+						<h:outputLabel value="Classificação" />
+						<h:selectOneMenu value="#{programaMB.programa.classificacao}" styleClass="form-control" style="width:45%;">
+							<f:selectItem itemValue="" itemLabel=" -- " />
+							<f:selectItems value="#{canalMb.classificacoes}" var="cla" 
+								itemLabel="#{cla.descricao}" itemValue="#{cla.id}"  />
+						</h:selectOneMenu>
+					</div>
+					<h:commandButton action="#{programaMB.salvar}" styleClass="btn btn-default" value="Enviar" />
+					<input type="reset" value="Restaurar" class="btn btn-default" />
+				</h:form>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

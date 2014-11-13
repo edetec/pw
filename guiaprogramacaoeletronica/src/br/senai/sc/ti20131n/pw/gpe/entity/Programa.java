@@ -21,7 +21,6 @@ public class Programa {
 	@Lob
 	private String descricao;
 	private Integer classificacao;
-	
 	@ManyToOne(cascade=CascadeType.PERSIST)
 	private Canal canal;
 	
