@@ -32,11 +32,17 @@
 					</div>
 					<div class="form-group">
 						<h:outputLabel value="Início" /> 
-						<input type="datetime-local" value="#{programaMB.programa.inicio}" class="form-control" />
+						<h:inputText value="#{programaMB.programa.inicio}" styleClass="form-control">
+							<f:passThroughAttribute name="type" value="datetime-local"/>
+							<f:convertDateTime pattern="yyyy-MM-dd'T'HH:mm"	 />
+						</h:inputText>
 					</div>
 					<div class="form-group">
 						<h:outputLabel value="Fim" /> 
-						<input type="datetime-local" value="#{programaMB.programa.fim}" class="form-control" />
+						<h:inputText value="#{programaMB.programa.fim}" styleClass="form-control">
+							<f:passThroughAttribute name="type" value="datetime-local"/>
+							<f:convertDateTime pattern="yyyy-MM-dd'T'HH:mm"	 />
+						</h:inputText>
 					</div>
 					
 					<div class="form-group">
