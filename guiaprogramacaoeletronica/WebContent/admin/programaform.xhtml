@@ -14,32 +14,32 @@
 		<div class="panel panel-default col-md-9">
 			<div class="panel-body">
 				<h:form role="form" enctype="multipart/form-data">
-					<h:inputHidden value="#{programaMB.programa.id}" />
-					<h:panelGroup rendered="#{not empty programaMB.programa.id}">
+					<h:inputHidden value="#{programaMb.programa.id}" />
+					<h:panelGroup rendered="#{not empty programaMb.programa.id}">
 						<div class="form-group">
 							<h:outputLabel value="Código" /> 
-							<h:inputText readonly="true" value="#{programaMB.programa.id}" styleClass="form-control" />
+							<h:inputText readonly="true" value="#{programaMb.programa.id}" styleClass="form-control" />
 						</div>
 					</h:panelGroup>
 					
 					<div class="form-group">
 						<h:outputLabel value="Nome" /> 
-						<h:inputText value="#{programaMB.programa.nome}" styleClass="form-control" />
+						<h:inputText value="#{programaMb.programa.nome}" styleClass="form-control" />
 					</div>
 					<div class="form-group">
 						<h:outputLabel value="Descrição" /> 
-						<h:inputText value="#{programaMB.programa.descricao}" styleClass="form-control" />
+						<h:inputText value="#{programaMb.programa.descricao}" styleClass="form-control" />
 					</div>
 					<div class="form-group">
 						<h:outputLabel value="Início" /> 
-						<h:inputText value="#{programaMB.programa.inicio}" styleClass="form-control">
+						<h:inputText value="#{programaMb.programa.inicio}" styleClass="form-control">
 							<f:passThroughAttribute name="type" value="datetime-local"/>
 							<f:convertDateTime pattern="yyyy-MM-dd'T'HH:mm"	 />
 						</h:inputText>
 					</div>
 					<div class="form-group">
 						<h:outputLabel value="Fim" /> 
-						<h:inputText value="#{programaMB.programa.fim}" styleClass="form-control">
+						<h:inputText value="#{programaMb.programa.fim}" styleClass="form-control">
 							<f:passThroughAttribute name="type" value="datetime-local"/>
 							<f:convertDateTime pattern="yyyy-MM-dd'T'HH:mm"	 />
 						</h:inputText>
@@ -47,7 +47,7 @@
 					
 					<div class="form-group">
 						<h:outputLabel value="Canal" />
-						<h:selectOneMenu value="#{programaMB.programa.canal}" styleClass="form-control" style="width:45%;">
+						<h:selectOneMenu value="#{programaMb.programa.canal}" styleClass="form-control" style="width:45%;">
 							<f:selectItem itemValue="" itemLabel=" -- " />
 							<f:selectItems value="#{canalMb.canais}" var="canal" 
 								itemLabel="#{canal.nome}" itemValue="#{canal}"  />
@@ -56,13 +56,13 @@
 					
 					<div class="form-group">
 						<h:outputLabel value="Classificação" />
-						<h:selectOneMenu value="#{programaMB.programa.classificacao}" styleClass="form-control" style="width:45%;">
+						<h:selectOneMenu value="#{programaMb.programa.classificacao}" styleClass="form-control" style="width:45%;">
 							<f:selectItem itemValue="" itemLabel=" -- " />
 							<f:selectItems value="#{canalMb.classificacoes}" var="cla" 
 								itemLabel="#{cla.descricao}" itemValue="#{cla.id}"  />
 						</h:selectOneMenu>
 					</div>
-					<h:commandButton action="#{programaMB.salvar}" styleClass="btn btn-default" value="Enviar" />
+					<h:commandButton action="#{programaMb.salvar}" styleClass="btn btn-default" value="Enviar" />
 					<input type="reset" value="Restaurar" class="btn btn-default" />
 				</h:form>
 			</div>

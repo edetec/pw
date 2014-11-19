@@ -9,7 +9,7 @@ import br.senai.sc.ti20131n.pw.gpe.dao.ProgramaDao;
 import br.senai.sc.ti20131n.pw.gpe.entity.Programa;
 
 @ManagedBean
-public class ProgramaMB {
+public class ProgramaMb {
 	private Programa programa;
 	private List<Programa> programas;
 	private ProgramaDao dao;

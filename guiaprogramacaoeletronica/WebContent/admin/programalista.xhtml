@@ -14,7 +14,7 @@
 		<div class="panel panel-default col-md-9">
 			<div class="panel-body">
 				<h:form>
-					<h:dataTable value="#{programaMB.programas}" var="programa" styleClass="table">
+					<h:dataTable value="#{programaMb.programas}" var="programa" styleClass="table">
 						<h:column>
 						<f:facet name="header">Canal</f:facet>
 							<h:outputText value="#{programa.canal.nome}" />
@@ -24,9 +24,9 @@
 							<h:outputText value="#{programa.nome}" />
 						</h:column>
 						<h:column>
-							<h:commandLink action="#{programaMB.carregarEdicao(programa.id)}"><span class="glyphicon glyphicon-pencil"></span></h:commandLink>
+							<h:commandLink action="#{programaMb.carregarEdicao(programa.id)}"><span class="glyphicon glyphicon-pencil"></span></h:commandLink>
 							&nbsp;&nbsp;&nbsp; 
-							<h:commandLink action="#{programaMB.excluir(programa.id)}"><span class="glyphicon glyphicon-trash"></span></h:commandLink>
+							<h:commandLink action="#{programaMb.excluir(programa.id)}"><span class="glyphicon glyphicon-trash"></span></h:commandLink>
 						</h:column>
 					</h:dataTable>
 				</h:form>
